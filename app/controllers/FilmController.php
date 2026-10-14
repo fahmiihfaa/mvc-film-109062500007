@@ -66,6 +66,20 @@ class FilmController
         $this->redirect('index.php?page=film');
     }
 
+    public function delete(): void
+    {
+        $id = (int) ($_POST['id'] ?? 0);
+
+        try {
+            $this->model->delete($id);
+            $this->flash('success', 'Film berhasil dihapus.');
+        } catch (PDOException $e) {
+            $this->flash('error', 'Gagal menghapus film.');
+        }
+
+        $this->redirect('index.php?page=film');
+    }
+
     private function validateInput(array $input): array
     {
         $data = [
