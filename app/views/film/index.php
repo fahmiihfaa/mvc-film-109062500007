@@ -9,6 +9,8 @@
 
     <?php require __DIR__ . '/../partials/flash.php'; ?>
 
+    <a href="index.php?page=film&action=create">Tambah Film</a><br><br>
+
     <table border="1" cellpadding="8" cellspacing="0">
         <tr>
             <th>Judul</th>

@@ -11,5 +11,19 @@ class Film
         );
         return $stmt->fetchAll();
     }
+
+    public function insert(array $data): bool
+    {
+        $sql = 'INSERT INTO film (judul, genre, tahun_rilis, negara, rating)
+                VALUES (:judul, :genre, :tahun, :negara, :rating)';
+        $stmt = $this->db->prepare($sql);
+        return $stmt->execute([
+            ':judul'  => $data['judul'],
+            ':genre'  => $data['genre'],
+            ':tahun'  => $data['tahun_rilis'],
+            ':negara' => $data['negara'],
+            ':rating' => $data['rating']
+        ]);
+    }
 }
 ?>
