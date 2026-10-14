@@ -18,6 +18,7 @@
             <th>Tahun</th>
             <th>Negara</th>
             <th>Rating</th>
+            <th>Aksi</th>
         </tr>
         <?php foreach ($films as $f): ?>
         <tr>
@@ -26,6 +27,9 @@
             <td><?= htmlspecialchars($f['tahun_rilis']) ?></td>
             <td><?= htmlspecialchars($f['negara']) ?></td>
             <td><?= htmlspecialchars($f['rating']) ?></td>
+            <td>
+                <a href="index.php?page=film&action=edit&id=<?= (int) $f['id'] ?>">Edit</a>
+            </td>
         </tr>
         <?php endforeach; ?>
     </table>

@@ -33,6 +33,39 @@ class FilmController
         $this->redirect('index.php?page=film');
     }
 
+    public function edit(): void
+    {
+        $id = (int) ($_GET['id'] ?? 0);
+        $film = $this->model->findById($id);
+
+        if (!$film) {
+            http_response_code(404);
+            exit('Data film tidak ditemukan.');
+        }
+
+        require __DIR__ . '/../views/film/edit.php';
+    }
+
+    public function update(): void
+    {
+        $id = (int) ($_POST['id'] ?? 0);
+        [$data, $errors] = $this->validateInput($_POST);
+
+        if ($errors) {
+            $this->flash('error', implode(' ', $errors));
+            $this->redirect('index.php?page=film&action=edit&id=' . $id);
+        }
+
+        try {
+            $this->model->update($id, $data);
+            $this->flash('success', 'Film berhasil diperbarui.');
+        } catch (PDOException $e) {
+            $this->flash('error', $this->dbErrorMessage($e));
+        }
+
+        $this->redirect('index.php?page=film');
+    }
+
     private function validateInput(array $input): array
     {
         $data = [
