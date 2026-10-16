@@ -33,11 +33,13 @@ Aplikasi CRUD sederhana untuk mengelola data film dengan pola Model-View-Control
 Hasil `git log --oneline`:
 
 ```
-e5e0671 (HEAD -> master) feat: add delete film feature
-c99c2b0 feat: add edit and update film feature
-379cf1e feat: add create film feature with validation
-09f17ab feat: add film list page
-115bdff feat: add PDO database connection
-8b57362 feat: add film database schema and seed data
-239f150 chore: initialize mvc php native film project
+* 2bf544f (HEAD -> main) style: add external css
+* d8420b1 (origin/main) docs: add installation and MVC documentation
+* e5e0671 feat: add delete film feature
+* c99c2b0 feat: add edit and update film feature
+* 379cf1e feat: add create film feature with validation
+* 09f17ab feat: add film list page
+* 115bdff feat: add PDO database connection
+* 8b57362 feat: add film database schema and seed data
+* 239f150 chore: initialize mvc php native film project
 ```
