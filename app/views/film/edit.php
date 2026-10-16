@@ -2,38 +2,58 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Edit Film</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <h2>Edit Film</h2>
+    <div class="wrap narrow">
+        <?php require __DIR__ . '/../partials/flash.php'; ?>
 
-    <?php require __DIR__ . '/../partials/flash.php'; ?>
+        <div class="ticket">
+            <h1>Edit Film</h1>
+            <p class="sub">Perbarui data tiket</p>
 
-    <form method="post" action="index.php?page=film&action=update">
-        <input type="hidden" name="id" value="<?= (int) $film['id'] ?>">
+            <form method="post" action="index.php?page=film&action=update">
+                <input type="hidden" name="id" value="<?= (int) $film['id'] ?>">
 
-        <label>Judul</label><br>
-        <input type="text" name="judul"
-               value="<?= htmlspecialchars($film['judul']) ?>" required><br><br>
+                <div class="field">
+                    <label>Judul</label>
+                    <input type="text" name="judul"
+                           value="<?= htmlspecialchars($film['judul']) ?>" required>
+                </div>
 
-        <label>Genre</label><br>
-        <input type="text" name="genre"
-               value="<?= htmlspecialchars($film['genre']) ?>" required><br><br>
+                <div class="field">
+                    <label>Genre (pisahkan dengan koma)</label>
+                    <input type="text" name="genre"
+                           value="<?= htmlspecialchars($film['genre']) ?>" required>
+                </div>
 
-        <label>Tahun Rilis</label><br>
-        <input type="number" name="tahun_rilis"
-               value="<?= htmlspecialchars($film['tahun_rilis']) ?>" required><br><br>
+                <div class="row-2">
+                    <div class="field">
+                        <label>Tahun Rilis</label>
+                        <input type="number" name="tahun_rilis"
+                               value="<?= htmlspecialchars($film['tahun_rilis']) ?>" required>
+                    </div>
+                    <div class="field">
+                        <label>Rating (0-10)</label>
+                        <input type="number" name="rating" step="0.1" min="0" max="10"
+                               value="<?= htmlspecialchars($film['rating']) ?>" required>
+                    </div>
+                </div>
 
-        <label>Negara</label><br>
-        <input type="text" name="negara"
-               value="<?= htmlspecialchars($film['negara']) ?>" required><br><br>
+                <div class="field">
+                    <label>Negara</label>
+                    <input type="text" name="negara"
+                           value="<?= htmlspecialchars($film['negara']) ?>" required>
+                </div>
 
-        <label>Rating (0-10)</label><br>
-        <input type="number" name="rating" step="0.1" min="0" max="10"
-               value="<?= htmlspecialchars($film['rating']) ?>" required><br><br>
-
-        <button type="submit">Update</button>
-        <a href="index.php?page=film">Kembali</a>
-    </form>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-gold">Update</button>
+                    <a class="btn btn-ghost" href="index.php?page=film">Kembali</a>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
